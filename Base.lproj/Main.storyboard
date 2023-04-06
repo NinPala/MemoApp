@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i8o-5Q-rSS">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--設定-->
+        <scene sceneID="kxp-7A-ieQ">
+            <objects>
+                <viewController id="pVR-20-zg0" customClass="SettingViewController" customModule="memoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yAv-H1-PJP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VYS-cS-dBN"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="f01-BV-UkS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wfx-QG-hJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4807" y="1178"/>
+        </scene>
+        <!--Memo Table View Controller-->
+        <scene sceneID="DAj-VC-tGC">
+            <objects>
+                <tableViewController storyboardIdentifier="MemoTableViewController" id="GZu-s9-lso" customClass="MemoTableViewController" customModule="memoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hf1-oi-LkI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoTableViewCell" textLabel="QVO-Ol-bdm" style="IBUITableViewCellStyleDefault" id="zsx-z6-c9L">
+                                <rect key="frame" x="0.0" y="50" width="393" height="54.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zsx-z6-c9L" id="bc3-Mt-bgj">
+                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="54.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QVO-Ol-bdm">
+                                            <rect key="frame" x="20" y="0.0" width="334.66666666666669" height="54.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="editMemo" id="Kud-KB-YsS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GZu-s9-lso" id="BeQ-b7-O1V"/>
+                            <outlet property="delegate" destination="GZu-s9-lso" id="iLd-ca-9BE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" style="browser" id="akn-Z6-xwa">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="sGZ-Zu-zIt"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="ZhB-ap-p8U">
+                                <connections>
+                                    <action selector="unwindToMemoListWithSender:" destination="GZu-s9-lso" id="03T-Zm-PRb"/>
+                                    <segue destination="tE0-FI-H9r" kind="presentation" identifier="addMemo" id="KxL-PK-m6c"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="gearshape" catalog="system" id="T96-GV-ta8">
+                                <connections>
+                                    <action selector="chengeColor:" destination="GZu-s9-lso" id="2zE-sd-7nR"/>
+                                    <segue destination="pVR-20-zg0" kind="show" id="q2y-6X-3IV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="leftBarButton" destination="sGZ-Zu-zIt" id="4lS-Nf-7Lh"/>
+                        <outlet property="memoTableView" destination="hf1-oi-LkI" id="q8X-Bv-4XS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvh-Gj-J0M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4806.8702290076335" y="17.605633802816904"/>
+        </scene>
+        <!--Memo View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MemoViewController" customModule="memoApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GHt-9k-UJr">
+                                <rect key="frame" x="0.0" y="103" width="393" height="681"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GHt-9k-UJr" secondAttribute="bottom" constant="34" id="0cv-BT-Ts8"/>
+                            <constraint firstItem="GHt-9k-UJr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Q9i-RO-Vnc"/>
+                            <constraint firstItem="GHt-9k-UJr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aPl-5S-S5c"/>
+                            <constraint firstItem="GHt-9k-UJr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jEO-qn-DNG"/>
+                            <constraint firstItem="GHt-9k-UJr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nec-iO-Hgj"/>
+                            <constraint firstItem="GHt-9k-UJr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xv0-TM-mGV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8qj-oG-czS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="J18-Z8-kdV">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="kvs-EW-ig6"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="Ics-XN-5HH">
+                                <connections>
+                                    <segue destination="AoT-8d-Qb2" kind="unwind" unwindAction="unwindToMemoListWithSender:" id="bH5-1y-VVa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="83Q-8g-XeA">
+                                <connections>
+                                    <action selector="clickShareSheet:" destination="BYZ-38-t0r" id="4RS-7i-U3Q"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="Ics-XN-5HH" id="K7e-ug-pcP"/>
+                        <outlet property="textView" destination="GHt-9k-UJr" id="eGM-WB-6Ja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="AoT-8d-Qb2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6687.7862595419847" y="17.605633802816904"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kWc-wo-Nn6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tE0-FI-H9r" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7iX-RZ-QgJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jCd-K0-djA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rmk-ja-vo4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5787" y="502"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BT7-4A-oQk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i8o-5Q-rSS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IyC-X1-gHF">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="16"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="IyC-X1-gHF" id="h5q-mK-90m"/>
+                        <segue destination="GZu-s9-lso" kind="relationship" relationship="rootViewController" id="Qg5-ps-5jx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHD-Dk-Zpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3880.1526717557249" y="17.605633802816904"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kud-KB-YsS"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
